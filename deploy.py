@@ -5,7 +5,8 @@ import snowflake.connector
 conn = snowflake.connector.connect(
     account=os.environ["ACCOUNT"],
     user=os.environ["USER"],
-    database=os.environ["DATABASE"]
+    database=os.environ["DATABASE"],
+    password=os.environ["PASSWORD"]
 )
 
 cur = conn.cursor()
