@@ -2,6 +2,11 @@ import os
 import glob
 import snowflake.connector
 
+
+print("ACCOUNT:", bool(os.environ.get("ACCOUNT")))
+print("USER:", bool(os.environ.get("USER")))
+print("PASSWORD:", bool(os.environ.get("PASSWORD")))
+print("PASSWORD LENGTH:", len(os.environ.get("PASSWORD", "")))
 conn = snowflake.connector.connect(
     account=os.environ["ACCOUNT"],
     user=os.environ["USER"],
