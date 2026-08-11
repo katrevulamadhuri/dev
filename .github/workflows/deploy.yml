@@ -24,7 +24,16 @@ jobs:
       - name: Install Packages
         run: |
           pip install -r requirements.txt
-
+          
+      - name: Verify environment variables
+        env:
+          ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+          USER: ${{ secrets.SNOWFLAKE_USER }}
+          PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+        run: |
+          echo "ACCOUNT=${ACCOUNT:+SET}"
+          echo "USER=${USER:+SET}"
+          echo "PASSWORD=${PASSWORD:+SET}"
       - name: Deploy SQL
         env:
           ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
