@@ -40,5 +40,7 @@ jobs:
           USER: ${{ secrets.SNOWFLAKE_USER }}
           DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
           PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+      run: |
+        python -c "import os; print('Password length:', len(os.environ.get('PASSWORD','')))"
+        python scripts/deploy.py
 
-        run: python scripts/deploy.py
